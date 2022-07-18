@@ -1,2 +1,2 @@
-<app-game-scores [game]="currentGame$ | async"></app-game-scores>
-<app-game-board (sendChoiceEmitter)="sendChoice($event)"></app-game-board>
+<app-game-scores [game]="currentGame"></app-game-scores>
+<app-game-board (sendChoiceEmitter)="playRound($event)"></app-game-board>

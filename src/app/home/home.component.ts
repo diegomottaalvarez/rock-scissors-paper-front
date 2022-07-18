@@ -9,7 +9,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { Subscriber, Subscription } from 'rxjs';
+import { EMPTY, Subscriber, Subscription, switchMap } from 'rxjs';
 import { LocalStorageService } from './../services/local-storage.service';
 
 @Component({
@@ -56,14 +56,9 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   startGame() {
-    const currentGame: GameModel = {
-      username: this.username.value,
-      win: 0,
-      lost: 0,
-    };
-    this.gameService.setCurrentGame(currentGame);
-    this.localStorageService.setCurrentGame(currentGame);
-    this.router.navigate(['game']);
+    this.gameService.getOrCreateGame(this.username.value).subscribe((res) => {
+      this.router.navigate(['game']);
+    });
   }
 
   get username(): AbstractControl | null {

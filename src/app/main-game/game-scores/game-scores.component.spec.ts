@@ -21,7 +21,13 @@ describe('GameScoresComponent', () => {
   });
 
   it('should show player name', () => {
-    component.game = { username: 'test', win: 2, lost: 3 };
+    component.game = {
+      username: 'test',
+      userWins: 2,
+      computerWins: 3,
+      lastPlayUser: null,
+      lastPlayComputer: null,
+    };
     fixture.detectChanges();
     const playerName =
       fixture.debugElement.nativeElement.querySelector('.player-title');
@@ -30,7 +36,13 @@ describe('GameScoresComponent', () => {
 
   it('should show player score', () => {
     console.log('GAMEEEEE', component);
-    component.game = { username: 'test', win: 2, lost: 3 };
+    component.game = {
+      username: 'test',
+      userWins: 2,
+      computerWins: 3,
+      lastPlayUser: null,
+      lastPlayComputer: null,
+    };
     fixture.detectChanges();
     const playerBoard =
       fixture.debugElement.nativeElement.querySelector('.player-score');
@@ -38,7 +50,13 @@ describe('GameScoresComponent', () => {
   });
 
   it('should show computer score', () => {
-    component.game = { username: 'test', win: 2, lost: 3 };
+    component.game = {
+      username: 'test',
+      userWins: 2,
+      computerWins: 3,
+      lastPlayUser: null,
+      lastPlayComputer: null,
+    };
     fixture.detectChanges();
     const computerBoard =
       fixture.debugElement.nativeElement.querySelector('.computer-score');

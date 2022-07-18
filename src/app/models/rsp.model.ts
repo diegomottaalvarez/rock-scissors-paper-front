@@ -12,6 +12,8 @@ export const RSP_VALUES_IMAGES_MAP = new Map<string, string>([
 
 export interface GameModel {
   username: string;
-  win: number;
-  lost: number;
+  userWins: number;
+  computerWins: number;
+  lastPlayUser: RSP_VALUES;
+  lastPlayComputer: RSP_VALUES;
 }

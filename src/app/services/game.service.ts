@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, of } from 'rxjs';
+import { BehaviorSubject, map, Observable, of, tap } from 'rxjs';
 import { GameModel, RSP_VALUES } from './../models/rsp.model';
 import { ApiService } from './api.service';
 import { LocalStorageService } from './local-storage.service';
@@ -15,6 +15,7 @@ export class GameService {
     const currentGame = this.localStorageService.getCurrentGame();
     currentGame && this.setCurrentGame(currentGame);
   }
+
   private currentGameSubject: BehaviorSubject<GameModel> =
     new BehaviorSubject<GameModel>(null);
 
@@ -34,9 +35,40 @@ export class GameService {
     this.localStorageService.setCurrentGame(null);
   }
 
-  public sendChoice(playersChoice: RSP_VALUES): Observable<any> {
-    return of(playersChoice);
-    return this.apiService.post('/sendChoice', { playersChoice });
+  public getOrCreateGame(username: string) {
+    return this.apiService.post('/game', { username }).pipe(
+      tap((res: GameModel) => {
+        if (res) {
+          this.setCurrentGame(res);
+          this.localStorageService.setCurrentGame(res);
+        }
+      })
+    );
+  }
+
+  // public getGame(username: string) {
+  //   return this.apiService.get(`/game?username=${username}`).pipe(
+  //     tap((res) => {
+  //       if (res) {
+  //         this.setCurrentGame(res);
+  //         this.localStorageService.setCurrentGame(res);
+  //       }
+  //     })
+  //   );
+  // }
+
+  public playRound(
+    userPlay: RSP_VALUES,
+    username: string
+  ): Observable<{ game: GameModel; result: string }> {
+    return this.apiService.post('/game/playRound', { username, userPlay }).pipe(
+      tap((res: { game: GameModel; result: string }) => {
+        if (res.game) {
+          this.setCurrentGame(res.game);
+          this.localStorageService.setCurrentGame(res.game);
+        }
+      })
+    );
   }
 
   public getRanking(amount: number) {
