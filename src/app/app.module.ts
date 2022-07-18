@@ -6,12 +6,16 @@ import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { SharedModule } from './shared/shared.module';
+import { HeaderComponent } from './core/header/header.component';
+import { HttpClientModule } from '@angular/common/http';
+import { DeleteButtonComponent } from './core/header/delete-button/delete-button.component';
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, HeaderComponent, DeleteButtonComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SharedModule,
+    HttpClientModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
       // Register the ServiceWorker as soon as the application is stable

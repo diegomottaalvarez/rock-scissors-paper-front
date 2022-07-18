@@ -9,3 +9,9 @@ export const RSP_VALUES_IMAGES_MAP = new Map<string, string>([
   [RSP_VALUES.SCISSORS, 'rsp-scissors.svg'],
   [RSP_VALUES.PAPER, 'rsp-paper.svg'],
 ]);
+
+export interface GameModel {
+  username: string;
+  win: number;
+  lost: number;
+}

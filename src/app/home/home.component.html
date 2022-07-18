@@ -1,0 +1,7 @@
+<div class="start-game-container">
+  <form [formGroup]="startGameForm">
+    <label for="username">Introduzca su nombre de usuario</label>
+    <input formControlName="username" type="text" name="username" />
+    <button (click)="onStartButtonClick()">Empezar juego</button>
+  </form>
+</div>

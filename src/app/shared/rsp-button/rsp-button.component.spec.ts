@@ -31,10 +31,12 @@ describe('RspButtonComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  // it('should load received image', fakeAsync(() => {
-  //   const img = fixture.debugElement.nativeElement.querySelector('img');
-  //   expect(img.src).toContain(component.image);
-  // }));
+  it('should load received image', fakeAsync(() => {
+    component.image = 'rock.svg';
+    fixture.detectChanges();
+    const img = fixture.debugElement.nativeElement.querySelector('img');
+    expect(img.src).toContain(component.image);
+  }));
 
   it('should call emit event', fakeAsync(() => {
     spyOn(component, 'onButtonClick');
@@ -44,4 +46,3 @@ describe('RspButtonComponent', () => {
     expect(component.onButtonClick).toHaveBeenCalled();
   }));
 });
-

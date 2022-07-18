@@ -1,0 +1,8 @@
+<div class="list-container">
+  <app-rsp-button
+    *ngFor="let item of buttonsList"
+    [image]="RSP_VALUES_IMAGES_MAP.get(item)"
+    [value]="item"
+    (valueEmitter)="onButtonClick($event)"
+  ></app-rsp-button>
+</div>
