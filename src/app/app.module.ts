@@ -9,6 +9,7 @@ import { SharedModule } from './shared/shared.module';
 import { HeaderComponent } from './core/header/header.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DeleteButtonComponent } from './core/header/delete-button/delete-button.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [AppComponent, HeaderComponent, DeleteButtonComponent],
   imports: [
@@ -22,6 +23,7 @@ import { DeleteButtonComponent } from './core/header/delete-button/delete-button
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000',
     }),
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

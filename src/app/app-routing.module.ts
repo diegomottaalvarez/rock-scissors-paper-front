@@ -13,6 +13,13 @@ const routes: Routes = [
     loadChildren: () =>
       import('./main-game/main-game.module').then((m) => m.MainGameModule),
   },
+  {
+    path: 'ranking',
+    loadChildren: () =>
+      import('./global-ranking/global-ranking.module').then(
+        (m) => m.GlobalRankingModule
+      ),
+  },
 ];
 
 @NgModule({

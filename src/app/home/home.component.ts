@@ -49,7 +49,6 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   onStartButtonClick() {
     if (!this.username?.value) {
-      console.log('INTRODUZCA USUARIO');
       return;
     }
     this.startGame();

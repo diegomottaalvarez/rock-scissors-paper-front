@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, map, Observable, of, tap } from 'rxjs';
-import { GameModel, RSP_VALUES } from './../models/rsp.model';
+import { BehaviorSubject, Observable, of, tap, delay } from 'rxjs';
+import { GameModel, RSP_VALUES } from '../models/rsp.model';
 import { ApiService } from './api.service';
 import { LocalStorageService } from './local-storage.service';
 
@@ -62,6 +62,7 @@ export class GameService {
     username: string
   ): Observable<{ game: GameModel; result: string }> {
     return this.apiService.post('/game/playRound', { username, userPlay }).pipe(
+      delay(1000),
       tap((res: { game: GameModel; result: string }) => {
         if (res.game) {
           this.setCurrentGame(res.game);
@@ -72,7 +73,6 @@ export class GameService {
   }
 
   public getRanking(amount: number) {
-    return of(amount);
-    return this.apiService.get(`/ranking?amount=${amount}`);
+    return this.apiService.get(`/game/ranking?amount=${amount}`);
   }
 }

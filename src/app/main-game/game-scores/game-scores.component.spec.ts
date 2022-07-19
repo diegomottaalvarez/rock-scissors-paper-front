@@ -35,7 +35,6 @@ describe('GameScoresComponent', () => {
   });
 
   it('should show player score', () => {
-    console.log('GAMEEEEE', component);
     component.game = {
       username: 'test',
       userWins: 2,

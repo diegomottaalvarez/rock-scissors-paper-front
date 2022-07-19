@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-delete-button',
@@ -6,7 +6,7 @@ import { Component, OnInit, EventEmitter } from '@angular/core';
   styleUrls: ['./delete-button.component.scss'],
 })
 export class DeleteButtonComponent implements OnInit {
-  endGameEmitter: EventEmitter<void> = new EventEmitter();
+  @Output() endGameEmitter: EventEmitter<void> = new EventEmitter();
   constructor() {}
 
   ngOnInit(): void {}

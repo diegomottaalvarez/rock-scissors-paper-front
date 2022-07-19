@@ -1,3 +1,6 @@
 <div class="header">
-  <app-delete-button *ngIf="gameStarted$ | async"></app-delete-button>
+  <app-delete-button
+    *ngIf="gameStarted$ | async"
+    (endGameEmitter)="endGame()"
+  ></app-delete-button>
 </div>
