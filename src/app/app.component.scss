@@ -5,7 +5,7 @@ main.main-container {
   overflow-x: hidden;
   position: relative;
   min-height: 100vh;
-  grid-template-rows: 75px 1fr 207px;
+  grid-template-rows: 75px 1fr 75px;
   grid-template-columns: minmax(0, 1fr);
   grid-template-areas:
     "header"

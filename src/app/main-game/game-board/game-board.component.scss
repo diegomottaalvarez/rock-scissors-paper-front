@@ -13,7 +13,7 @@
     align-self: baseline;
   }
   img {
-    width: 50%;
+    width: 38%;
   }
 
   p.result-message {
@@ -34,6 +34,10 @@
       justify-content: initial;
       p.computer-selection-title {
         align-self: initial;
+      }
+
+      img {
+        width: 50%;
       }
     }
   }
