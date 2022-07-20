@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1658351438360,
+  "timestamp": 1658354261100,
   "index": "https://diegomottaalvarez.github.io/rock-scissors-paper-front/index.html",
   "assetGroups": [
     {
@@ -55,7 +55,7 @@
         "https://diegomottaalvarez.github.io/rock-scissors-paper-front/assets/img/back.png",
         "https://diegomottaalvarez.github.io/rock-scissors-paper-front/assets/img/log-out.png",
         "https://diegomottaalvarez.github.io/rock-scissors-paper-front/assets/img/rsp-icon.png",
-        "https://diegomottaalvarez.github.io/rock-scissors-paper-front/assets/img/rsp-lizzard.svg",
+        "https://diegomottaalvarez.github.io/rock-scissors-paper-front/assets/img/rsp-lizard.svg",
         "https://diegomottaalvarez.github.io/rock-scissors-paper-front/assets/img/rsp-paper.svg",
         "https://diegomottaalvarez.github.io/rock-scissors-paper-front/assets/img/rsp-rock.svg",
         "https://diegomottaalvarez.github.io/rock-scissors-paper-front/assets/img/rsp-scissors.svg",
@@ -108,7 +108,7 @@
     "https://diegomottaalvarez.github.io/rock-scissors-paper-front/assets/img/back.png": "16317ee00d2e3640e44cb5f89b44d6865e453b33",
     "https://diegomottaalvarez.github.io/rock-scissors-paper-front/assets/img/log-out.png": "650f04cd465bcb2c0d2ade142419174e9c34e57f",
     "https://diegomottaalvarez.github.io/rock-scissors-paper-front/assets/img/rsp-icon.png": "c579067590ef998b9f8a1c2a7e93de464f70962a",
-    "https://diegomottaalvarez.github.io/rock-scissors-paper-front/assets/img/rsp-lizzard.svg": "28deef4829b2b9e1ff184c0e531c306737b19405",
+    "https://diegomottaalvarez.github.io/rock-scissors-paper-front/assets/img/rsp-lizard.svg": "28deef4829b2b9e1ff184c0e531c306737b19405",
     "https://diegomottaalvarez.github.io/rock-scissors-paper-front/assets/img/rsp-paper.svg": "cb2cb0ab09d66224cfb64b9a4813d952741a14cf",
     "https://diegomottaalvarez.github.io/rock-scissors-paper-front/assets/img/rsp-rock.svg": "0f6d3dbceb0a2c131c774be2c14c1cbc1b16b83c",
     "https://diegomottaalvarez.github.io/rock-scissors-paper-front/assets/img/rsp-scissors.svg": "547fc78860a989cc6acac77a81b95e6ffd490a82",
