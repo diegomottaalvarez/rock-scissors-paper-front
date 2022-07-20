@@ -11,6 +11,8 @@ import { GameService } from './../services/game.service';
 export class GlobalRankingComponent implements OnInit {
   public ranking: GameModel[];
   public amount: number = 10;
+
+  public displayedColumns = ['username', 'userWins', 'computerWins'];
   constructor(private gameService: GameService) {}
 
   ngOnInit(): void {

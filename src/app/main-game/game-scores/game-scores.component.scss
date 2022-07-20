@@ -1,0 +1,8 @@
+.game-scores {
+  display: flex;
+  justify-content: space-between;
+  .title {
+    font-weight: bold;
+  }
+  margin-bottom: 5%;
+}

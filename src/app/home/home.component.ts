@@ -7,9 +7,26 @@ import {
   AbstractControl,
   FormControl,
   FormGroup,
+  FormGroupDirective,
+  NgForm,
   Validators,
 } from '@angular/forms';
 import { Subscription } from 'rxjs';
+import { ErrorStateMatcher } from '@angular/material/core';
+
+export class MyErrorStateMatcher implements ErrorStateMatcher {
+  isErrorState(
+    control: FormControl | null,
+    form: FormGroupDirective | NgForm | null
+  ): boolean {
+    const isSubmitted = form && form.submitted;
+    return !!(
+      control &&
+      control.invalid &&
+      (control.dirty || control.touched || isSubmitted)
+    );
+  }
+}
 
 @Component({
   selector: 'app-home',
@@ -19,6 +36,7 @@ import { Subscription } from 'rxjs';
 export class HomeComponent implements OnInit, OnDestroy {
   startGameForm: FormGroup;
   subscriptions: Subscription = new Subscription();
+  matcher;
   constructor(private router: Router, private gameService: GameService) {}
 
   ngOnInit(): void {
@@ -38,12 +56,16 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   initForm() {
     this.startGameForm = new FormGroup({
-      username: new FormControl('', [Validators.required]),
+      username: new FormControl('', [
+        Validators.required,
+        Validators.pattern('^[A-Za-z0-9ñÑáéíóúÁÉÍÓÚ ]+$'),
+      ]),
     });
+    this.matcher = new MyErrorStateMatcher();
   }
 
   onStartButtonClick() {
-    if (!this.username?.value) {
+    if (!this.username?.value || this.startGameForm.invalid) {
       return;
     }
     this.startGame();

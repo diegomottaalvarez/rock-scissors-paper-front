@@ -35,6 +35,7 @@ $rsp-front-theme: mat.define-light-theme(
 @include mat.all-component-themes($rsp-front-theme);
 
 /* You can add global styles to this file, and also import other style files */
+@import "./theme-colors/custom-theme-colors.scss";
 
 // @font-face {
 //   font-family: "BentonSansBBVA";
@@ -95,9 +96,27 @@ body {
 
 * {
   font-family: BentonSansBBVA, "Helvetica Neue", sans-serif;
+  font-size: 16px;
 }
 
-// body [class^="mat-"],
-// body [class*=" mat-"] {
-//   font-family: BentonSansBBVA, "Helvetica Neue", sans-serif;
-// }
+button.mat-button {
+  background-color: $light-blue;
+  color: #fff;
+  span {
+    color: #fff;
+  }
+}
+
+input.ng-invalid.ng-dirty {
+  border-color: red;
+}
+
+//utils
+
+.w-percent-75 {
+  width: 75px;
+}
+
+.w-100 {
+  width: 100px;
+}

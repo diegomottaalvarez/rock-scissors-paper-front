@@ -1,0 +1,18 @@
+.start-game-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  .mat-form-field {
+    display: block;
+  }
+
+  button {
+    margin-top: 15%;
+  }
+
+  .errors {
+    margin-top: 5%;
+    color: red;
+  }
+}

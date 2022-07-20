@@ -10,6 +10,7 @@ import {
   filter,
   switchMap,
   EMPTY,
+  map,
 } from 'rxjs';
 import {
   GameModel,
@@ -64,22 +65,24 @@ export class GameService {
   public playRound(
     userPlay: RSPGAME_VALUES,
     currentGame: GameModel
-  ): Observable<{ game: GameModel }> {
+  ): Observable<{ game: GameModel; result: RSPGAME_RESULT_OPTIONS }> {
     this.spinnerService.startLoading();
-    const game = this.computerPlay(userPlay, currentGame);
+    const { game, result } = this.computerPlay(userPlay, currentGame);
     return this.customConnectionService.hasConnection$.pipe(
       filter((res) => res !== null),
       take(1),
       switchMap((res) => {
         if (res) {
-          return this.persistDataInMongo(game);
+          return this.persistDataInMongo(game).pipe(
+            map((res) => ({ game, result }))
+          );
         } else {
           setTimeout(() => {
             this.dbPwaService.addRecord(game);
             this.setCurrentGame(game);
             this.spinnerService.stopLoading();
           }, 1000);
-          return of(null);
+          return of({ game, result });
         }
       })
     );
@@ -88,11 +91,13 @@ export class GameService {
   public persistDataInMongo(game) {
     return this.apiService.post('/game/save', { game }).pipe(
       delay(1000),
-      tap((res: { game: GameModel }) => {
-        if (res.game) {
+      map((res: { game: GameModel }) => {
+        const { game } = res;
+        if (game) {
           this.setCurrentGame(res.game);
           this.spinnerService.stopLoading();
         }
+        return game;
       })
     );
   }
@@ -112,7 +117,7 @@ export class GameService {
     } else if (result === RSPGAME_RESULT_OPTIONS.COMPUTER_WIN) {
       game.computerWins++;
     }
-    return game;
+    return { game, result };
   }
 
   public getRanking(amount: number) {

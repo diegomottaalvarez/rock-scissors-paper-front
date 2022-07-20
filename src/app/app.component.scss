@@ -17,20 +17,15 @@ main.main-container {
     grid-template-columns: 243px minmax(0, 1fr);
     grid-template-areas:
       "header header"
-      "sidebar content"
+      "content content"
       "footer footer";
     column-gap: 20px;
-  }
-}
-nav {
-  grid-area: sidebar;
-  @media (max-width: 761px) {
-    display: none;
   }
 }
 
 section {
   grid-area: content;
+  padding: 8% 5%;
   @media (min-width: 762px) {
     padding-right: 30px;
   }
@@ -39,6 +34,7 @@ section {
 header {
   grid-area: header;
   background-color: $dark-blue;
+  padding: 0 25px;
 }
 
 footer {
@@ -48,6 +44,6 @@ footer {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 130px;
+  height: 100%;
   background-color: $dark-blue;
 }

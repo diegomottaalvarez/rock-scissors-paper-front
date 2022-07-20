@@ -11,7 +11,7 @@ import { GameModel } from '../../models/rsp.model';
 })
 export class HeaderComponent implements OnInit {
   public gameStarted$: Observable<GameModel>;
-  constructor(private gameService: GameService, private router: Router) {}
+  constructor(private gameService: GameService, public router: Router) {}
 
   ngOnInit(): void {
     this.gameStarted$ = this.gameService.getCurrentGame();

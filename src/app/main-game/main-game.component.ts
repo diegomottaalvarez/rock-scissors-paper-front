@@ -1,6 +1,10 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Observable, Subscription, switchMap, EMPTY } from 'rxjs';
-import { GameModel } from '../models/rsp.model';
+import {
+  GameModel,
+  RSPGAME_RESULT_OPTIONS,
+  RSP_RESULT_MESSAGES_MAP,
+} from '../models/rsp.model';
 import { GameService } from './../services/game.service';
 import { CustomConnectionService } from './../services/connection.service';
 
@@ -12,6 +16,8 @@ import { CustomConnectionService } from './../services/connection.service';
 export class MainGameComponent implements OnInit, OnDestroy {
   currentGame: GameModel;
   subscriptions: Subscription = new Subscription();
+  result: string;
+
   constructor(
     private gameService: GameService,
     private customConnectionService: CustomConnectionService
@@ -45,7 +51,7 @@ export class MainGameComponent implements OnInit, OnDestroy {
       this.gameService
         .playRound(playersChoice, this.currentGame)
         .subscribe((res) => {
-          console.log(res);
+          this.result = RSP_RESULT_MESSAGES_MAP.get(res.result);
         })
     );
   }

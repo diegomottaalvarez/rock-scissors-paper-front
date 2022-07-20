@@ -1,7 +1,25 @@
 <div class="header">
-  <app-delete-button
-    *ngIf="gameStarted$ | async"
-    (endGameEmitter)="endGame()"
-  ></app-delete-button>
-  <a role="button" routerLink="/ranking">Ranking</a>
+  <a
+    role="button"
+    class="go-back"
+    *ngIf="router.url === '/ranking'"
+    routerLink="/"
+    ><img src="assets/img/back.png"
+  /></a>
+  <img class="icon" src="assets/img/rsp-icon.png" />
+
+  <a
+    mat-button
+    role="button"
+    class="ranking"
+    *ngIf="router.url === '/'"
+    routerLink="/ranking"
+    ><img src="assets/img/trophy.png"
+  /></a>
+  <div class="delete">
+    <app-delete-button
+      *ngIf="gameStarted$ | async"
+      (endGameEmitter)="endGame()"
+    ></app-delete-button>
+  </div>
 </div>

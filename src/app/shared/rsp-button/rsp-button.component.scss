@@ -1,10 +1,23 @@
+@import "../../../theme-colors/custom-theme-colors";
+
 img {
   width: 100%;
-  filter: invert(12%) sepia(68%) saturate(2597%) hue-rotate(199deg)
-    brightness(93%) contrast(97%);
+}
 
-  &:hover {
-    filter: invert(17%) sepia(22%) saturate(7370%) hue-rotate(193deg)
-      brightness(98%) contrast(102%);
+button {
+  border: none;
+  background-color: transparent;
+
+  &.buttonSelected {
+    img {
+      background: radial-gradient(
+        ellipse at center,
+        $light-blue 0%,
+        $light-blue 68%,
+        transparent 70%,
+        transparent 47%,
+        transparent 48%
+      );
+    }
   }
 }
