@@ -3,12 +3,9 @@
   flex-direction: column;
   justify-content: center;
   height: 100%;
+  text-align: right;
   .mat-form-field {
     display: block;
-  }
-
-  button {
-    margin-top: 15%;
   }
 
   .errors {

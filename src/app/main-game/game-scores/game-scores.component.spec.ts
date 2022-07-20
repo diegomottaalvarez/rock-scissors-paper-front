@@ -31,7 +31,7 @@ describe('GameScoresComponent', () => {
     fixture.detectChanges();
     const playerName =
       fixture.debugElement.nativeElement.querySelector('.player-title');
-    expect(playerName.innerHTML).toEqual('test:');
+    expect(playerName.innerHTML).toEqual('test: ');
   });
 
   it('should show player score', () => {

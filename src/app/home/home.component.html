@@ -15,7 +15,13 @@
         [errorStateMatcher]="matcher"
       />
     </mat-form-field>
-    <button mat-button (click)="onStartButtonClick()">Empezar juego</button>
+    <button
+      mat-button
+      (click)="onStartButtonClick()"
+      *ngIf="startGameForm.valid"
+    >
+      Empezar juego
+    </button>
     <!-- <div *ngIf="username.dirty && username.errors" class="errors">
       <p *ngIf="username.errors['required']">
         Es necesario introducir un nombre para jugar

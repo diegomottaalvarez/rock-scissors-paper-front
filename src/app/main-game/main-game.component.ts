@@ -51,7 +51,7 @@ export class MainGameComponent implements OnInit, OnDestroy {
       this.gameService
         .playRound(playersChoice, this.currentGame)
         .subscribe((res) => {
-          this.result = RSP_RESULT_MESSAGES_MAP.get(res.result);
+          this.result = res.result;
         })
     );
   }

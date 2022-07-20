@@ -36,17 +36,10 @@ describe('HomeComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should not do anything if there is no username', fakeAsync(() => {
-    spyOn(component, 'startGame');
-    let button = fixture.debugElement.nativeElement.querySelector('button');
-    button.click();
-    tick();
-    expect(component.startGame).not.toHaveBeenCalled();
-  }));
-
   it('should send the username to the backend', fakeAsync(() => {
     spyOn(component, 'startGame');
     component.username.setValue('usertest');
+    fixture.detectChanges();
     let button = fixture.debugElement.nativeElement.querySelector('button');
     button.click();
     tick();

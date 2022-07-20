@@ -104,8 +104,6 @@ export class GameService {
 
   private computerPlay(userPlay, currentGame) {
     const computerPlay = this.getRandomItemWithException(this.lastComputerPlay);
-    console.log('USER', userPlay);
-    console.log('COMPUTER', computerPlay);
 
     const result = this.playRSP(userPlay, computerPlay);
     const game = { ...currentGame };
@@ -121,7 +119,7 @@ export class GameService {
   }
 
   public getRanking(amount: number) {
-    return this.apiService.get(`/game/ranking?amount=${amount}`);
+    return this.apiService.get(`/game/ranking/${amount}`);
   }
 
   playRSP = (userPlay, computerPlay) => {

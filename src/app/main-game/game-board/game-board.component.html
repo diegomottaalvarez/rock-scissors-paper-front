@@ -6,7 +6,7 @@
     (valueEmitter)="onButtonClick($event)"
   ></app-rsp-button>
 </div>
-<div class="computer-response" *ngIf="currentGame && result">
+<div class="computer-response" *ngIf="currentGame && _result">
   <p class="computer-selection-title">Tu rival escogió:</p>
   <img
     src="assets/img/{{
@@ -14,6 +14,6 @@
     }}"
   />
   <p class="result-message">
-    {{ result }}
+    {{ RSP_RESULT_MESSAGES_MAP.get(_result) }}
   </p>
 </div>
