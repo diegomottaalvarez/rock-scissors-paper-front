@@ -9,6 +9,8 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { HomeComponent } from './home.component';
+import { CustomGlobalSpinnerService } from './../core/header/custom-global-spinner/services/custom-global-spinner.service';
+import { OnlineStatusService } from 'ngx-online-status';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -21,7 +23,7 @@ describe('HomeComponent', () => {
         ReactiveFormsModule,
         HttpClientTestingModule,
       ],
-
+      providers: [CustomGlobalSpinnerService, OnlineStatusService],
       declarations: [HomeComponent],
     }).compileComponents();
 

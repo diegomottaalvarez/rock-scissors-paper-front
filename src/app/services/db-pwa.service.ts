@@ -14,7 +14,7 @@ export class DbPwaService extends Dexie {
     });
 
     this.open()
-      .then((data) => console.log('DB Opened'))
+      .then((data) => {})
       .catch((err) => console.log(err.message));
   }
 

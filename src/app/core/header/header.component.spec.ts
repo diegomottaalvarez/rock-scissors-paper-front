@@ -9,6 +9,8 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { HeaderComponent } from './header.component';
+import { CustomGlobalSpinnerService } from './custom-global-spinner/services/custom-global-spinner.service';
+import { OnlineStatusService } from 'ngx-online-status';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
@@ -18,6 +20,7 @@ describe('HeaderComponent', () => {
     await TestBed.configureTestingModule({
       imports: [RouterTestingModule, HttpClientTestingModule],
       declarations: [HeaderComponent],
+      providers: [CustomGlobalSpinnerService, OnlineStatusService],
     }).compileComponents();
 
     fixture = TestBed.createComponent(HeaderComponent);
