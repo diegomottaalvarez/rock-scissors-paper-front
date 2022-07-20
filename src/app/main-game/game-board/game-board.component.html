@@ -1,19 +1,23 @@
-<div class="list-container">
-  <app-rsp-button
-    *ngFor="let item of buttonsList"
-    [image]="RSP_VALUES_IMAGES_MAP.get(item)"
-    [value]="item"
-    (valueEmitter)="onButtonClick($event)"
-  ></app-rsp-button>
-</div>
-<div class="computer-response" *ngIf="currentGame && _result">
-  <p class="computer-selection-title">Tu rival escogió:</p>
-  <img
-    src="assets/img/{{
-      RSP_VALUES_IMAGES_MAP.get(currentGame.lastPlayComputer)
-    }}"
-  />
-  <p class="result-message">
-    {{ RSP_RESULT_MESSAGES_MAP.get(_result) }}
-  </p>
+<div class="game-board-container">
+  <div class="list-container">
+    <app-rsp-button
+      *ngFor="let item of buttonsList"
+      [image]="RSPLSGAME_VALUES_IMAGES_MAP.get(item)"
+      [value]="item"
+      (valueEmitter)="onButtonClick($event)"
+    ></app-rsp-button>
+  </div>
+  <div class="computer-response">
+    <p class="computer-selection-title">Your opponent selected:</p>
+    <ng-container *ngIf="currentGame && result">
+      <img
+        src="assets/img/{{
+          RSPLSGAME_VALUES_IMAGES_MAP.get(currentGame.lastPlayComputer)
+        }}"
+      />
+      <p class="result-message">
+        {{ RSPLSGAME_RESULT_MESSAGES_MAP.get(result) }}
+      </p>
+    </ng-container>
+  </div>
 </div>

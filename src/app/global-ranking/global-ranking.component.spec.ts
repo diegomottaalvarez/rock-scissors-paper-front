@@ -68,7 +68,6 @@ describe('GlobalRankingComponent', () => {
       let tableRows = fixture.nativeElement
         .querySelector('tbody')
         .querySelectorAll('tr');
-      console.log('ESTOS SON LOS ELEMENTOS', tableRows.length);
       expect(tableRows.length).toBe(component.ranking.length);
       done();
     });

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { GameService } from './../../services/game.service';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { GameModel } from '../../models/rsp.model';
+import { GameService } from './../../services/game.service';
 
 @Component({
   selector: 'app-header',

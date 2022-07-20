@@ -1,12 +1,12 @@
 <div class="start-game-container">
   <form [formGroup]="startGameForm">
     <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>Nombre de usuario</mat-label>
+      <mat-label>Username</mat-label>
       <mat-error *ngIf="username.hasError('pattern')">
-        El nombre sólo puede contener letras y números
+        Username can only have letters and/or numbers
       </mat-error>
       <mat-error *ngIf="username.hasError('required')">
-        Es necesario introducir un nombre para jugar
+        Username is required
       </mat-error>
       <input
         type="text"
@@ -20,7 +20,7 @@
       (click)="onStartButtonClick()"
       *ngIf="startGameForm.valid"
     >
-      Empezar juego
+      Start Game
     </button>
     <!-- <div *ngIf="username.dirty && username.errors" class="errors">
       <p *ngIf="username.errors['required']">

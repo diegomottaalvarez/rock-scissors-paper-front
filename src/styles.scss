@@ -99,9 +99,14 @@ body {
   font-size: 16px;
 }
 
+button {
+  cursor: pointer;
+}
+
 button.mat-button {
   background-color: $light-blue;
   color: #fff;
+
   span {
     color: #fff;
   }
@@ -109,14 +114,4 @@ button.mat-button {
 
 input.ng-invalid.ng-dirty {
   border-color: red;
-}
-
-//utils
-
-.w-percent-75 {
-  width: 75px;
-}
-
-.w-100 {
-  width: 100px;
 }

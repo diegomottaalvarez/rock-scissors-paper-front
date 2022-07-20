@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { EMPTY, Subscription, switchMap } from 'rxjs';
-import { GameModel, RSPGAME_RESULT_OPTIONS } from '../models/rsp.model';
+import { GameModel, RSPLSGAME_RESULT_OPTIONS } from '../models/rsp.model';
 import { CustomConnectionService } from './../services/connection.service';
 import { GameService } from './../services/game.service';
 
@@ -12,7 +12,7 @@ import { GameService } from './../services/game.service';
 export class MainGameComponent implements OnInit, OnDestroy {
   currentGame: GameModel;
   subscriptions: Subscription = new Subscription();
-  result: RSPGAME_RESULT_OPTIONS;
+  result: RSPLSGAME_RESULT_OPTIONS;
 
   constructor(
     private gameService: GameService,

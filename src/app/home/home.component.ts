@@ -1,6 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { GameModel } from './../models/rsp.model';
 import { GameService } from './../services/game.service';
 
 import {
@@ -11,8 +10,8 @@ import {
   NgForm,
   Validators,
 } from '@angular/forms';
-import { Subscription } from 'rxjs';
 import { ErrorStateMatcher } from '@angular/material/core';
+import { Subscription } from 'rxjs';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(
@@ -72,9 +71,11 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   startGame() {
-    this.gameService.getOrCreateGame(this.username.value).subscribe((res) => {
-      this.router.navigate(['game']);
-    });
+    this.gameService
+      .getOrCreateGame(this.username.value.trim())
+      .subscribe((res) => {
+        this.router.navigate(['game']);
+      });
   }
 
   get username(): AbstractControl | null {

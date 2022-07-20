@@ -6,7 +6,10 @@ import {
   HttpTestingController,
 } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { RSPGAME_RESULT_OPTIONS, RSPGAME_VALUES } from '../models/rsp.model';
+import {
+  RSPLSGAME_RESULT_OPTIONS,
+  RSPLSGAME_VALUES,
+} from '../models/rsp.model';
 import { environment } from './../../environments/environment';
 import { CustomGlobalSpinnerService } from './../core/header/custom-global-spinner/services/custom-global-spinner.service';
 import { OnlineStatusService } from 'ngx-online-status';
@@ -16,7 +19,6 @@ describe('GameService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule, RouterTestingModule],
-
       providers: [GameService, CustomGlobalSpinnerService, OnlineStatusService],
     });
     service = TestBed.inject(GameService);
@@ -29,7 +31,7 @@ describe('GameService', () => {
 
   it('should take more than 1 second to get computer`s response', (done) => {
     const username = 'test';
-    const userPlay = RSPGAME_VALUES.PAPER;
+    const userPlay = RSPLSGAME_VALUES.PAPER;
     const start = Date.now();
     service.playRound(userPlay, username).subscribe((res) => {
       const end = Date.now();
@@ -43,30 +45,30 @@ describe('GameService', () => {
   });
 
   it('should create a computer response different from the previous one', () => {
-    const firstComputerPlay = service.getRandomItemWithException(null);
-    const secondComputerPlay =
-      service.getRandomItemWithException(firstComputerPlay);
-    expect(secondComputerPlay).not.toBe(firstComputerPlay);
+    const allAnswersDifferent = [...Array(100).keys()]
+      .map(() => service.getRandomItemWithException(RSPLSGAME_VALUES.ROCK))
+      .every((item) => item !== RSPLSGAME_VALUES.ROCK);
+    expect(allAnswersDifferent).toBeTruthy();
   });
 
   it('should rock win to scissors', () => {
-    const userPlay = RSPGAME_VALUES.ROCK;
-    const computerPlay = RSPGAME_VALUES.SCISSORS;
+    const userPlay = RSPLSGAME_VALUES.ROCK;
+    const computerPlay = RSPLSGAME_VALUES.SCISSORS;
     const result = service.playRSP(userPlay, computerPlay);
-    expect(result).toBe(RSPGAME_RESULT_OPTIONS.USER_WIN);
+    expect(result).toBe(RSPLSGAME_RESULT_OPTIONS.USER_WIN);
   });
 
   it('should scissors win to paper', () => {
-    const userPlay = RSPGAME_VALUES.SCISSORS;
-    const computerPlay = RSPGAME_VALUES.PAPER;
+    const userPlay = RSPLSGAME_VALUES.SCISSORS;
+    const computerPlay = RSPLSGAME_VALUES.PAPER;
     const result = service.playRSP(userPlay, computerPlay);
-    expect(result).toBe(RSPGAME_RESULT_OPTIONS.USER_WIN);
+    expect(result).toBe(RSPLSGAME_RESULT_OPTIONS.USER_WIN);
   });
 
   it('should paper win to rock', () => {
-    const userPlay = RSPGAME_VALUES.PAPER;
-    const computerPlay = RSPGAME_VALUES.ROCK;
+    const userPlay = RSPLSGAME_VALUES.PAPER;
+    const computerPlay = RSPLSGAME_VALUES.ROCK;
     const result = service.playRSP(userPlay, computerPlay);
-    expect(result).toBe(RSPGAME_RESULT_OPTIONS.USER_WIN);
+    expect(result).toBe(RSPLSGAME_RESULT_OPTIONS.USER_WIN);
   });
 });

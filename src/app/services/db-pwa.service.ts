@@ -21,7 +21,7 @@ export class DbPwaService extends Dexie {
   addRecord(game: GameModel): void {
     this.table('games')
       .put(game, game.username)
-      .then((data) => console.log(data))
+      .then()
       .catch((err) => {
         console.log(err.message);
         // if (err.message.includes('Key already exists in the object store.')) {
@@ -33,7 +33,7 @@ export class DbPwaService extends Dexie {
   getRecord(username) {
     this.table('games')
       .get(username)
-      .then((data) => console.log(data))
+      .then()
       .catch((err) => {
         console.log(err.message);
       });

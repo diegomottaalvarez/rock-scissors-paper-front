@@ -2,7 +2,6 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { environment } from './../../environments/environment';
 
 export enum STATUS_CODES_ENUM {
@@ -75,25 +74,4 @@ export class ApiService {
       'Access-Control-Allow-Origin': '*',
     });
   }
-
-  // private handleError(error: any) {
-  //   if (error instanceof HttpErrorResponse) {
-  //     switch (error.status) {
-  //       case STATUS_CODES_ENUM.UNAUTHORIZED:
-  //         break;
-  //       case STATUS_CODES_ENUM.FORBIDDEN:
-  //         this.router.navigateByUrl('');
-  //         break;
-  //       case STATUS_CODES_ENUM.NOT_FOUND:
-  //         this.router.navigateByUrl(CommonUrls.PAGE_NOT_FOUND_URL);
-  //         break;
-  //       case STATUS_CODES_ENUM.INTERNAL_SERVER_ERROR:
-  //         break;
-
-  //       default:
-  //         return new Error(error.message);
-  //     }
-  //     return EMPTY;
-  //   }
-  // }
 }

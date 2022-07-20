@@ -1,27 +1,25 @@
 import { Injectable } from '@angular/core';
 import {
   BehaviorSubject,
+  delay,
+  filter,
+  map,
   Observable,
   of,
-  tap,
-  delay,
-  take,
-  catchError,
-  filter,
   switchMap,
-  EMPTY,
-  map,
+  take,
+  tap,
 } from 'rxjs';
 import {
   GameModel,
-  RSPGAME_RESULT_OPTIONS,
-  RSPGAME_VALUES,
-  RSPGAME_WINS,
+  RSPLSGAME_RESULT_OPTIONS,
+  RSPLSGAME_VALUES,
+  RSPLSGAME_WINS,
 } from '../models/rsp.model';
-import { ApiService } from './api.service';
 import { CustomGlobalSpinnerService } from './../core/header/custom-global-spinner/services/custom-global-spinner.service';
-import { DbPwaService } from './db-pwa.service';
+import { ApiService } from './api.service';
 import { CustomConnectionService } from './connection.service';
+import { DbPwaService } from './db-pwa.service';
 
 @Injectable({
   providedIn: 'root',
@@ -33,7 +31,7 @@ export class GameService {
   private currentGame$: Observable<GameModel> =
     this.currentGameSubject.asObservable();
 
-  private lastComputerPlay: RSPGAME_VALUES;
+  private lastComputerPlay: RSPLSGAME_VALUES;
   constructor(
     private apiService: ApiService,
     private spinnerService: CustomGlobalSpinnerService,
@@ -63,9 +61,9 @@ export class GameService {
   }
 
   public playRound(
-    userPlay: RSPGAME_VALUES,
+    userPlay: RSPLSGAME_VALUES,
     currentGame: GameModel
-  ): Observable<{ game: GameModel; result: RSPGAME_RESULT_OPTIONS }> {
+  ): Observable<{ game: GameModel; result: RSPLSGAME_RESULT_OPTIONS }> {
     this.spinnerService.startLoading();
     const { game, result } = this.computerPlay(userPlay, currentGame);
     return this.customConnectionService.hasConnection$.pipe(
@@ -110,9 +108,9 @@ export class GameService {
     game.lastPlayUser = userPlay;
     game.lastPlayComputer = computerPlay;
     this.lastComputerPlay = computerPlay;
-    if (result === RSPGAME_RESULT_OPTIONS.USER_WIN) {
+    if (result === RSPLSGAME_RESULT_OPTIONS.USER_WIN) {
       game.userWins++;
-    } else if (result === RSPGAME_RESULT_OPTIONS.COMPUTER_WIN) {
+    } else if (result === RSPLSGAME_RESULT_OPTIONS.COMPUTER_WIN) {
       game.computerWins++;
     }
     return { game, result };
@@ -124,16 +122,16 @@ export class GameService {
 
   playRSP = (userPlay, computerPlay) => {
     if (userPlay === computerPlay) {
-      return RSPGAME_RESULT_OPTIONS.TIE;
-    } else if (RSPGAME_WINS.get(userPlay) === computerPlay) {
-      return RSPGAME_RESULT_OPTIONS.USER_WIN;
+      return RSPLSGAME_RESULT_OPTIONS.TIE;
+    } else if (RSPLSGAME_WINS.get(userPlay).includes(computerPlay)) {
+      return RSPLSGAME_RESULT_OPTIONS.USER_WIN;
     } else {
-      return RSPGAME_RESULT_OPTIONS.COMPUTER_WIN;
+      return RSPLSGAME_RESULT_OPTIONS.COMPUTER_WIN;
     }
   };
 
   getRandomItemWithException = (lastItem) => {
-    const possibleValues = Object.values(RSPGAME_VALUES).filter(
+    const possibleValues = Object.values(RSPLSGAME_VALUES).filter(
       (item) => item != lastItem
     );
     const randomIndex = Math.floor(Math.random() * possibleValues.length);

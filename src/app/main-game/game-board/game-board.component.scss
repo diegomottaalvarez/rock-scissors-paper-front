@@ -21,3 +21,20 @@
     font-weight: bold;
   }
 }
+@media (min-width: 762px) {
+  .game-board-container {
+    display: flex;
+
+    .list-container {
+      width: 50%;
+    }
+    .computer-response {
+      width: 50%;
+      margin-top: 0;
+      justify-content: initial;
+      p.computer-selection-title {
+        align-self: initial;
+      }
+    }
+  }
+}
