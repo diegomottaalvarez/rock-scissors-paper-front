@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1658299976743,
+  "timestamp": 1658312972199,
   "index": "https://diegomottaalvarez.github.io/rock-scissors-paper-front/index.html",
   "assetGroups": [
     {
@@ -11,15 +11,15 @@
         "ignoreVary": true
       },
       "urls": [
-        "https://diegomottaalvarez.github.io/rock-scissors-paper-front/683.25177b2e36818897.js",
-        "https://diegomottaalvarez.github.io/rock-scissors-paper-front/885.558d7008c7306f90.js",
-        "https://diegomottaalvarez.github.io/rock-scissors-paper-front/965.53df547752a9d15d.js",
+        "https://diegomottaalvarez.github.io/rock-scissors-paper-front/523.891cd09c5453990e.js",
+        "https://diegomottaalvarez.github.io/rock-scissors-paper-front/683.f6c27687259ebd29.js",
+        "https://diegomottaalvarez.github.io/rock-scissors-paper-front/885.0cfcaca93eb1f02b.js",
         "https://diegomottaalvarez.github.io/rock-scissors-paper-front/favicon.ico",
         "https://diegomottaalvarez.github.io/rock-scissors-paper-front/index.html",
-        "https://diegomottaalvarez.github.io/rock-scissors-paper-front/main.d68f689c417b065d.js",
+        "https://diegomottaalvarez.github.io/rock-scissors-paper-front/main.0c98dfb00c1b32d8.js",
         "https://diegomottaalvarez.github.io/rock-scissors-paper-front/manifest.webmanifest",
-        "https://diegomottaalvarez.github.io/rock-scissors-paper-front/polyfills.1e9bff54a6503bba.js",
-        "https://diegomottaalvarez.github.io/rock-scissors-paper-front/runtime.d282280775f7a103.js",
+        "https://diegomottaalvarez.github.io/rock-scissors-paper-front/polyfills.592b6562bd4c352b.js",
+        "https://diegomottaalvarez.github.io/rock-scissors-paper-front/runtime.f371e05e3abfc3d7.js",
         "https://diegomottaalvarez.github.io/rock-scissors-paper-front/styles.5a8a8d41bc9fee76.css"
       ],
       "patterns": []
@@ -61,11 +61,26 @@
       "patterns": []
     }
   ],
-  "dataGroups": [],
+  "dataGroups": [
+    {
+      "name": "data-api",
+      "patterns": [
+        "https:\\/\\/rock-scissors-paper-dma\\.herokuapp\\.com\\/api"
+      ],
+      "strategy": "freshness",
+      "maxSize": 5,
+      "maxAge": 3000000,
+      "timeoutMs": 3000,
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "version": 1
+    }
+  ],
   "hashTable": {
-    "https://diegomottaalvarez.github.io/rock-scissors-paper-front/683.25177b2e36818897.js": "183e752c4d2e855939095e2850c44a67c34f7abf",
-    "https://diegomottaalvarez.github.io/rock-scissors-paper-front/885.558d7008c7306f90.js": "48c8f4a234a66d460dec8d5f9517c254a35b8253",
-    "https://diegomottaalvarez.github.io/rock-scissors-paper-front/965.53df547752a9d15d.js": "eab1d4e1e1d7430239e325b13ced7442e5081c19",
+    "https://diegomottaalvarez.github.io/rock-scissors-paper-front/523.891cd09c5453990e.js": "d33fb0a8f56c2dad81f1f6548270cd4edffa5691",
+    "https://diegomottaalvarez.github.io/rock-scissors-paper-front/683.f6c27687259ebd29.js": "b504705cf8d384de020c9797232a5528a15cd0c2",
+    "https://diegomottaalvarez.github.io/rock-scissors-paper-front/885.0cfcaca93eb1f02b.js": "e9f03a214f5ffc65171aa6a49cb3f85ef6ba91e2",
     "https://diegomottaalvarez.github.io/rock-scissors-paper-front/BentonSansBBVA-Bold.0618d2671f37977a.otf": "332a183a2157553909103997b747266b94510804",
     "https://diegomottaalvarez.github.io/rock-scissors-paper-front/BentonSansBBVA-Book.2ff1e483ed0b14d9.otf": "f6280deb0192a51cf2184fc83aee970f0d78b623",
     "https://diegomottaalvarez.github.io/rock-scissors-paper-front/BentonSansBBVA-BookItalic.42c502e4867f2df4.otf": "9d4f2c3ec7b95c2756624a33a98c82d163d447cb",
@@ -92,11 +107,11 @@
     "https://diegomottaalvarez.github.io/rock-scissors-paper-front/assets/img/rsp-scissors.svg": "4d696f664146b9ccb7a88d1aebca797d1871da60",
     "https://diegomottaalvarez.github.io/rock-scissors-paper-front/assets/img/rsp-spock.svg": "bb47f2ce7d043c521f579ceeb369ffadab9d6ab3",
     "https://diegomottaalvarez.github.io/rock-scissors-paper-front/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "https://diegomottaalvarez.github.io/rock-scissors-paper-front/index.html": "406247187df2e14fd62239f49130d657d91805af",
-    "https://diegomottaalvarez.github.io/rock-scissors-paper-front/main.d68f689c417b065d.js": "af7cb1980376b62c5b0bdd77aa51e16c1ca59382",
+    "https://diegomottaalvarez.github.io/rock-scissors-paper-front/index.html": "9c2f6d0cd72240f1b244b2e03d003c28844700eb",
+    "https://diegomottaalvarez.github.io/rock-scissors-paper-front/main.0c98dfb00c1b32d8.js": "ffdab41322072acfbeab00483d37c63d472bd767",
     "https://diegomottaalvarez.github.io/rock-scissors-paper-front/manifest.webmanifest": "f436f5142b90cf19e619178a15a6295bceab689a",
-    "https://diegomottaalvarez.github.io/rock-scissors-paper-front/polyfills.1e9bff54a6503bba.js": "d631fd9e998661023bfd3c64c46d23b253ece2e8",
-    "https://diegomottaalvarez.github.io/rock-scissors-paper-front/runtime.d282280775f7a103.js": "18822123d12c72567fb5ac2e795e4a3893f3d89f",
+    "https://diegomottaalvarez.github.io/rock-scissors-paper-front/polyfills.592b6562bd4c352b.js": "ebd4980949ced90fd9a4d6d92b4148c09aefde85",
+    "https://diegomottaalvarez.github.io/rock-scissors-paper-front/runtime.f371e05e3abfc3d7.js": "c46d3f3327a55eb4080364b36a4faec5676dbfd7",
     "https://diegomottaalvarez.github.io/rock-scissors-paper-front/styles.5a8a8d41bc9fee76.css": "278187151e484ff5622e67bfa0a471f79893182d"
   },
   "navigationUrls": [
