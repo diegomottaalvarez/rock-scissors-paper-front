@@ -25,7 +25,7 @@ export class ApiService {
   get(
     path: string,
     params: HttpParams = new HttpParams(),
-    header: HttpHeaders = new HttpHeaders()
+    header: HttpHeaders = this.getHeaders()
   ): Observable<any> {
     return this.http.get(`${this.apiUrl}${path}`, {
       headers: header,
@@ -37,7 +37,7 @@ export class ApiService {
   put(
     path: string,
     body: Object = {},
-    header: HttpHeaders = new HttpHeaders()
+    header: HttpHeaders = this.getHeaders()
   ): Observable<any> {
     return this.http.put(`${this.apiUrl}${path}`, body, { headers: header });
     // .pipe(catchError((error) => this.handleError(error)));
@@ -46,7 +46,7 @@ export class ApiService {
   patch(
     path: string,
     body: Object = {},
-    header: HttpHeaders = new HttpHeaders()
+    header: HttpHeaders = this.getHeaders()
   ): Observable<any> {
     return this.http.patch(`${this.apiUrl}${path}`, body, { headers: header });
     // .pipe(catchError((error) => this.handleError(error)));
@@ -55,7 +55,7 @@ export class ApiService {
   post(
     path: string,
     body: Object = {},
-    header: HttpHeaders = new HttpHeaders()
+    header: HttpHeaders = this.getHeaders()
   ): Observable<any> {
     return this.http.post(`${this.apiUrl}${path}`, body, { headers: header });
     // .pipe(catchError((error) => this.handleError(error)));
@@ -63,10 +63,17 @@ export class ApiService {
 
   delete(
     path: string,
-    header: HttpHeaders = new HttpHeaders()
+    header: HttpHeaders = this.getHeaders()
   ): Observable<any> {
     return this.http.delete(`${this.apiUrl}${path}`, { headers: header });
     // .pipe(catchError((error) => this.handleError(error)));
+  }
+
+  getHeaders() {
+    return new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+    });
   }
 
   // private handleError(error: any) {
