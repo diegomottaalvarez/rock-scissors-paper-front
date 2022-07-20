@@ -6,7 +6,7 @@ import {
   HttpTestingController,
 } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { RSP_VALUES } from '../models/rsp.model';
+import { RSPGAME_VALUES } from '../models/rsp.model';
 import { environment } from './../../environments/environment';
 
 describe('GameService', () => {
@@ -27,7 +27,7 @@ describe('GameService', () => {
 
   it('should take more than 1 second to get computer`s response', (done) => {
     const username = 'test';
-    const userPlay = RSP_VALUES.PAPER;
+    const userPlay = RSPGAME_VALUES.PAPER;
     const start = Date.now();
     service.playRound(userPlay, username).subscribe((res) => {
       const end = Date.now();

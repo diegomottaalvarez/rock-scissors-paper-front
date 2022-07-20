@@ -9,8 +9,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { EMPTY, Subscriber, Subscription, switchMap } from 'rxjs';
-import { LocalStorageService } from './../services/local-storage.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -20,11 +19,7 @@ import { LocalStorageService } from './../services/local-storage.service';
 export class HomeComponent implements OnInit, OnDestroy {
   startGameForm: FormGroup;
   subscriptions: Subscription = new Subscription();
-  constructor(
-    private router: Router,
-    private gameService: GameService,
-    private localStorageService: LocalStorageService
-  ) {}
+  constructor(private router: Router, private gameService: GameService) {}
 
   ngOnInit(): void {
     this.initForm();

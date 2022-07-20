@@ -1,7 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
+import { Observable, Subscription, switchMap, EMPTY } from 'rxjs';
 import { GameModel } from '../models/rsp.model';
 import { GameService } from './../services/game.service';
+import { CustomConnectionService } from './../services/connection.service';
 
 @Component({
   selector: 'app-main-game',
@@ -11,13 +12,27 @@ import { GameService } from './../services/game.service';
 export class MainGameComponent implements OnInit, OnDestroy {
   currentGame: GameModel;
   subscriptions: Subscription = new Subscription();
-  constructor(private gameService: GameService) {}
+  constructor(
+    private gameService: GameService,
+    private customConnectionService: CustomConnectionService
+  ) {}
 
   ngOnInit(): void {
     this.subscriptions.add(
       this.gameService.getCurrentGame().subscribe((res) => {
         this.currentGame = res;
       })
+    );
+    this.subscriptions.add(
+      this.customConnectionService.hasConnection$
+        .pipe(
+          switchMap((res) => {
+            return res && this.currentGame
+              ? this.gameService.persistDataInMongo(this.currentGame)
+              : EMPTY;
+          })
+        )
+        .subscribe()
     );
   }
 
@@ -26,10 +41,12 @@ export class MainGameComponent implements OnInit, OnDestroy {
   }
 
   playRound(playersChoice): void {
-    this.gameService
-      .playRound(playersChoice, this.currentGame.username)
-      .subscribe((res) => {
-        console.log(res);
-      });
+    this.subscriptions.add(
+      this.gameService
+        .playRound(playersChoice, this.currentGame)
+        .subscribe((res) => {
+          console.log(res);
+        })
+    );
   }
 }

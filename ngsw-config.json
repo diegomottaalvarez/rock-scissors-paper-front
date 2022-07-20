@@ -26,5 +26,17 @@
         ]
       }
     }
+  ],
+  "dataGroups": [
+    {
+      "name": "data-api",
+      "urls": ["https://rock-scissors-paper-dma.herokuapp.com/api"],
+      "cacheConfig": {
+        "strategy": "freshness",
+        "maxAge": "50m",
+        "timeout": "3s",
+        "maxSize": 5
+      }
+    }
   ]
 }
