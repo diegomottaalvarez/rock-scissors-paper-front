@@ -1,8 +1,8 @@
 {
-  "name": "rsp-front",
-  "short_name": "rsp-front",
-  "theme_color": "#1976d2",
-  "background_color": "#fafafa",
+  "name": "Rock Scissors Paper",
+  "short_name": "RSP",
+  "theme_color": "#004481",
+  "background_color": "#072146",
   "display": "standalone",
   "scope": "./",
   "start_url": "./",
