@@ -13,7 +13,7 @@ main.main-container {
     "footer";
 
   @media (min-width: 762px) {
-    grid-template-rows: 70px 1fr auto;
+    grid-template-rows: 70px 1fr 65px;
     grid-template-columns: 243px minmax(0, 1fr);
     grid-template-areas:
       "header header"
