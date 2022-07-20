@@ -1,6 +1,6 @@
 # rock-scissors-paper-front
 
-Rock Scissors Paper Lizzard Spock game PWA in Angular
+Rock Scissors Paper Lizard Spock game PWA in Angular
 
 Para desplegar el front de la aplicación en local:
 

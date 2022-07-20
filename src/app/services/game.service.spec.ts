@@ -58,6 +58,13 @@ describe('GameService', () => {
     expect(result).toBe(RSPLSGAME_RESULT_OPTIONS.USER_WIN);
   });
 
+  it('should rock win to lizard', () => {
+    const userPlay = RSPLSGAME_VALUES.ROCK;
+    const computerPlay = RSPLSGAME_VALUES.LIZARD;
+    const result = service.playRSP(userPlay, computerPlay);
+    expect(result).toBe(RSPLSGAME_RESULT_OPTIONS.USER_WIN);
+  });
+
   it('should scissors win to paper', () => {
     const userPlay = RSPLSGAME_VALUES.SCISSORS;
     const computerPlay = RSPLSGAME_VALUES.PAPER;
@@ -65,9 +72,51 @@ describe('GameService', () => {
     expect(result).toBe(RSPLSGAME_RESULT_OPTIONS.USER_WIN);
   });
 
+  it('should scissors win to lizard', () => {
+    const userPlay = RSPLSGAME_VALUES.SCISSORS;
+    const computerPlay = RSPLSGAME_VALUES.LIZARD;
+    const result = service.playRSP(userPlay, computerPlay);
+    expect(result).toBe(RSPLSGAME_RESULT_OPTIONS.USER_WIN);
+  });
+
   it('should paper win to rock', () => {
     const userPlay = RSPLSGAME_VALUES.PAPER;
     const computerPlay = RSPLSGAME_VALUES.ROCK;
+    const result = service.playRSP(userPlay, computerPlay);
+    expect(result).toBe(RSPLSGAME_RESULT_OPTIONS.USER_WIN);
+  });
+
+  it('should paper win to Spock', () => {
+    const userPlay = RSPLSGAME_VALUES.PAPER;
+    const computerPlay = RSPLSGAME_VALUES.SPOCK;
+    const result = service.playRSP(userPlay, computerPlay);
+    expect(result).toBe(RSPLSGAME_RESULT_OPTIONS.USER_WIN);
+  });
+
+  it('should lizard win to Spock', () => {
+    const userPlay = RSPLSGAME_VALUES.LIZARD;
+    const computerPlay = RSPLSGAME_VALUES.SPOCK;
+    const result = service.playRSP(userPlay, computerPlay);
+    expect(result).toBe(RSPLSGAME_RESULT_OPTIONS.USER_WIN);
+  });
+
+  it('should lizard win to paper', () => {
+    const userPlay = RSPLSGAME_VALUES.LIZARD;
+    const computerPlay = RSPLSGAME_VALUES.PAPER;
+    const result = service.playRSP(userPlay, computerPlay);
+    expect(result).toBe(RSPLSGAME_RESULT_OPTIONS.USER_WIN);
+  });
+
+  it('should Spock win to rock', () => {
+    const userPlay = RSPLSGAME_VALUES.SPOCK;
+    const computerPlay = RSPLSGAME_VALUES.ROCK;
+    const result = service.playRSP(userPlay, computerPlay);
+    expect(result).toBe(RSPLSGAME_RESULT_OPTIONS.USER_WIN);
+  });
+
+  it('should Spock win to scissors', () => {
+    const userPlay = RSPLSGAME_VALUES.SPOCK;
+    const computerPlay = RSPLSGAME_VALUES.SCISSORS;
     const result = service.playRSP(userPlay, computerPlay);
     expect(result).toBe(RSPLSGAME_RESULT_OPTIONS.USER_WIN);
   });
